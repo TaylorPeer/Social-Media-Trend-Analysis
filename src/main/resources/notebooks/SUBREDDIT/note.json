@@ -1,0 +1,212 @@
+{
+  "paragraphs": [
+    {
+      "title": "Top Non-English Subreddit Languages",
+      "text": "%sql \nselect lang, count(1) count\nfrom subreddits\nWHERE lang !\u003d \"null\" AND lang !\u003d \"en\"\ngroup by lang \norder by count DESC",
+      "dateUpdated": "Dec 6, 2015 12:32:33 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "multiBarChart",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [
+            {
+              "name": "lang",
+              "index": 0.0,
+              "aggr": "sum"
+            }
+          ],
+          "values": [
+            {
+              "name": "count",
+              "index": 1.0,
+              "aggr": "sum"
+            }
+          ],
+          "groups": [],
+          "scatter": {
+            "xAxis": {
+              "name": "lang",
+              "index": 0.0,
+              "aggr": "sum"
+            }
+          }
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1449400743171_1289081726",
+      "id": "20151206-121903_204012545",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TABLE",
+        "msg": "lang\tcount\nes\t4172\nde\t3299\nfr\t2080\nsv\t2073\nnl\t1934\npt\t1775\nno\t956\ntr\t883\nda\t854\nit\t819\nar\t791\nru\t765\nzh\t637\nja\t628\npl\t608\nid\t439\nro\t422\nfi\t393\nvi\t255\nel\t220\ncs\t218\nhu\t161\nhr\t136\nfa\t130\nko\t123\nbg\t120\nsl\t96\nsr\t94\neo\t94\net\t84\nlt\t84\nhe\t76\nth\t70\nis\t66\nhi\t62\nca\t61\nsk\t60\nuk\t59\nla\t54\nlv\t40\nta\t34\nbe\t32\nhy\t27\nbs\t20\nnn\t13\ngd\t10\neu\t6\nleet\t1\n"
+      },
+      "dateCreated": "Dec 6, 2015 12:19:03 PM",
+      "dateStarted": "Dec 6, 2015 12:23:17 PM",
+      "dateFinished": "Dec 6, 2015 12:23:21 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Top Subreddits By Language",
+      "text": "%sql \nselect title, subscribers\nfrom subreddits \nWHERE lang \u003d\u003d \"${language\u003den}\"\norder by subscribers DESC",
+      "dateUpdated": "Dec 6, 2015 12:33:38 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [
+            {
+              "name": "title",
+              "index": 0.0,
+              "aggr": "sum"
+            }
+          ],
+          "values": [
+            {
+              "name": "subscribers",
+              "index": 1.0,
+              "aggr": "sum"
+            }
+          ],
+          "groups": [],
+          "scatter": {
+            "xAxis": {
+              "name": "title",
+              "index": 0.0,
+              "aggr": "sum"
+            }
+          }
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {
+          "language": "ja"
+        },
+        "forms": {
+          "language": {
+            "name": "language",
+            "defaultValue": "en",
+            "hidden": false
+          }
+        }
+      },
+      "jobName": "paragraph_1449401153816_1574764625",
+      "id": "20151206-122553_1051745830",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TABLE",
+        "msg": "title\tsubscribers\nニュー速R\t11474\nばかにゅ～ Romancing BaKa\t3440\nふどぽんじゃ\t2730\njapancirclejerk: living in Japan since before it was cool\t2504\nアニメ (アニメ実況もOK)\t2362\nSmoothie Lovers, UNITE!\t2167\nJapanese TV\t1593\n角煮R\t1589\n/r/vizsla\t1420\nなんかヤバいやつ\t1397\nニュー速NoMoral\t1385\n英語の勉強\t1341\nニュー速VIP\t1328\nSteam部\t1237\nソフトウェア\t1191\nなんJ in Reddit\t1059\nMy Little Pony The Game\t967\nStuff that Matters in Kyoto, Japan\t920\n映画を当てるサブレ\t909\nPCゲーム全般(アダルトOK)\t784\nプログラミング\t738\n日本語：このレディットには日本語だけですよ！\t695\n家庭用ゲーム全般\t686\n画像\t663\n自作PC\t637\nニュースＧ (Genuine)\t629\n読書書籍板R\t624\n科学総合\t561\n音楽総合R\t553\nアニメRの記録\t546\nオカルトR\t518\nお酒・BAR\t515\n落書き帳\t511\nお絵かき部\t504\n今日知ったんだが ( Today I Learned 日本版 )\t477\nやろう！\t477\nふぇぇ\t474\nAndroid\t471\nサッカー\t463\nif i see you talking shit abuot...\t462\n地震・災害\t459\nゲーム速報\t454\nマンガ\t437\nクソスレッド全般\t437\nネット懐古\t430\ntoru\t415\n日本\t402\nIAmA(Japan) - ○○だけど質問ある？\t401\nレズ百合萌えR\t386\nハードウェア\t374\n国際情勢\t352\nウェブ漫画見張り所\t349\nApple製品総合\t348\nエロゲ速報 in reddit 興味を引かれた記事にはどんどんコメント\u0026amp;投票しましょう！\t347\nPINK全般\t346\nカテゴリ雑談・実況（活動停止）\t336\nスマホゲーム\t323\n天文・気象\t322\nmovie news for Japanese cinema fans\t316\nレトロゲーム部\t308\nMMORPG\t304\nブラウザゲーム\t303\nアフィカス対策\t302\n料理\t296\nラブライブ！\t294\n翻訳 通訳 サブレ\t294\n艦隊これくしょん～艦これ～\t290\nレディットアーカイブス\t290\nWatch Hot Sexy Asian Porn\t288\nCG(Computer graphics)\t287\n廃墟サブレ\t286\nベビーメタル - 日本語版\t281\n心と身体\t276\nアイドル画像\t276\n市況\t275\nニュース速報（嫌儲）\t273\nニー速R\t267\n真夏の夜の淫夢 A Midsummer Night’s Lewd Dream\t263\nレディット日本ポータル Welcome to Reddit !\t257\n園芸 (engei)\t253\nジャップ連呼サブレ\t249\n音楽制作・DTM\t244\n西洋史\t242\n「Reddiest」Android用 reddit専用ブラウザ\t238\n哲学板\t238\n神社サブレ\t234\n声優\t230\nボーカロイド・UTAU\t228\nフィギュア\t226\n東方Project\t223\nクラフト総合\t219\n文房具\t219\nSkyrim MOD 日本語\t217\nMODの集い\t214\nニュー速R運営用\t212\n旧ソ連諸国\t211\nニュー速Rev\t210\n卓上ゲーム\t206\nお絵かき\t202\n速R2 : 暇つぶし総合\t200\nみんなで作り上げる報道\t200\nI am not Abe\t193\n小説家になろう reddit部\t190\ntravel_ja\t189\nゲーム開発\t187\n日本語のレディット\t186\n将棋R\t186\nShit is burning somehow\t185\nmiminco\t182\nオンラインストレージ\t182\nRaspberry Pi (Japanese 日本語)\t181\nLISP ja\t175\nペット愛好会\t175\n任天堂ゲームサブレ\t173\n政治\t171\nAA倉庫\t168\n言語学\t167\n音ゲー\t164\nWindows Phone Japan\t164\n軍事\t164\nマインクラフト\t162\n特撮R\t156\nBicycle 自転車\t156\nコテザツ\t152\nRJポータル\t152\nsouji\t151\nニュース\t150\n一文字\t149\n100均サブレ\t149\nアホトークバトル\t148\n議論\t148\nモタスポJA : モータースポーツ総合サブレディット\t146\nパズル＆ドラゴンズ Reddit会所\t146\nものすごい勢いで質問に答えるサブレ\t146\n海外生活サブレ\t145\n『Zartan』 Reddit出張所\t144\n煙草銘柄・喫煙具サブレ\t144\nデジタルカメラ\t143\nセキュリティ\t143\nテレビドラマ\t141\n家電製品\t139\n身体と健康\t138\nバイク\t137\nオナニー\t137\n娯楽\t135\nエロ画像\t135\nCities: Skylines （日本語）\t134\nFINAL FANTASY XIV\t133\n暗号通貨\t133\npokemon_jp\t131\nドクターペッパー\t129\nrv開発\t127\nプラモデルサブレ\t127\n大喜利\t125\nアクアリウム\t125\n相撲R\t123\nDota2_JP\t123\nピルグリム(android専用reddit専ブラ)\t123\nアイドルマスター日本語subreddit\t123\nドール (Dolls)\t121\n三國志(Age_of_the_Three_Kingdoms) multi-lingual\t120\nLeague_of_Legends_JP\t119\nシャア専用サブレ\t115\nニュース速報F\t115\n資格・免許\t114\nGTA V 部\t114\nローグライク見通し線\t114\nHeroes of the Storm（日本語）\t113\n肉じゃがサブレ\t111\n声優ブログ更新情報\t109\nきのこサブレ\t109\nエロゲー制作\t108\nGaming_Device\t107\ntravel_jp: travelers\u0027 crossroads\t104\n写真部\t104\n女神\t103\nmovie_ja\t102\n学生総合\t101\n競馬\t101\nクレジットサブレ\t100\nReddit Enhancement Suite (ja)\t100\nサンドボックス\t99\np18s\t98\nCSS日本語版\t97\nレイジコミック\t97\nElona ~妹の館~\t94\nネット市民オンブズマン\t91\n格ゲーR\t90\nアンケート\t89\nTheLongDark_JP\t86\nドラゴンクエストX\t85\nマンホールの蓋サブレ\t84\n実況チャンネルR\t84\n河川・湖沼・ダム\t84\niosgame\t84\nマイリトルポニー\t83\nreddit知恵袋\t82\nPhantasy Star Online 2\t81\n地衣類サブレ\t80\n例のプール\t80\n映像制作\t79\nhitogashinu\t78\nクトゥルフ神話\t78\n携帯電話ゲーム\t77\nウォシュレット・シャワートイレ // washlet, shower toilet\t77\nプリパラ\t77\n懐アニ\t76\n縄文\t76\nぬ\t76\nアダルトビデオ(AV)\t76\nギター・ベース\t75\n無職ジャパン\t75\nogijun\t74\nFuck NSJ lol \t74\nオウム真理教総合\t73\nニュースL\t73\nリレー小説\t73\n陰謀タイム\t72\n海外の反応@reddit\t72\nエロゲー@Reddit\t71\nアニキャラ個別\t70\nRocksmith総合\t69\nラジオR\t69\n今日の運勢\t68\nスライムのおへや\t67\nHackintosh_ja\t65\nヤフー オークション わくわく 日記\t64\nWake Up, Girls ! reddit\t64\n蘚苔類サブレ\t64\nラブライブ！ サンシャイン!!\t64\n404 Not Found\t63\n戦国\t63\nハローワーク\t63\nニュース速報【ニュー速】\t62\n横浜ベイスターズ\t61\naodag\t60\nおもちゃ\t60\nポータブルAV\t59\nIngress\t57\nxpost_ja\t55\n自作ポエム\t55\nはげサブレ\t55\ntaboo news japan\t55\nStarCraft_JP\t54\nBitcoin for Japanese users\t53\nプロレスR\t53\nファイアーエムブレム\t53\n芸能ニュースR\t53\nエネルギーニュース_ja\t52\n刃物総合\t52\nニュース速報(論争中)\t52\nプログラミング\t51\nテレビR\t50\n無政府状態・無政府主義\t48\nモノリスソフトサブレ\t47\nSMITE_JP\t47\n小屋\t45\nエアライン＠Reddit掲示板\t45\nウメハラ総合スレ\t44\nTBSラジオ実況R\t44\nカオス\t44\n昆虫や身近な自然\t43\n雑R -That\u0027s R-\t42\nReddit用ブラウザJagdPanther\t41\nRC(ラジコン)\t40\nサバイバルゲーム\t37\nぱしへろんだす\t36\n産経新聞の捏造\t36\nクイズとかなぞなぞとか\t35\n悪羅悪羅\t33\n社説・論説\t32\nDogecoin in Japan\t32\nシマリス\t32\n国会\t32\n○○だけど質問ある？証拠！？…そんなものはない！\t31\nSICP ja\t30\nYaranaika\t30\nガンダムブレイカー2 wiki(仮)\t30\nスレタイ速報\t30\nallessandra\t29\nTruck Porn\t28\nニュー速R＋\t28\n万華鏡サブレ\t28\nぬいぐるみ\t27\nBicycling in Japan\t27\ntech_ja\t26\nニコニコ動画\t26\nかななん専用\t26\n大前研一\t25\n私闘！\t25\n( ͡° ͜ʖ ͡°)\t24\nモンハン\t24\nreddo\t24\nひよこサブレ\t23\nApp Engine Ja\t23\nネトゲ実況\t22\nDoom_jp\t22\nニュース速報B\t21\nTHE SHOW\t21\nレディケー40298\t21\nRockets in space\t21\nprogramming_ja\t20\nおこめ\t20\nsaigo\t19\nハムスター\t19\n世論調査\t19\n愚痴サブレ\t18\nMonacoin forum for Japanese speakers\t18\nロボットゲー＠reddit\t18\nfull tbh\t17\nグランブルーファンタジー\t17\nパチンコ＆スロット\t17\nニュース速報R+\t17\nDictatorial Republic of Samuria Smash\t17\nサブレのサブレ\t17\n何者でもないもの「オギリ」\t16\nAlec Audet Is Pro Hacker\t16\nstopdrinking Japan\t15\nニュース速報(嫌儲)\t15\nCJ\t15\nMyles is soo Kawaii~~ \u0026gt;O\u0026lt;\t15\nまんこ\t15\n遊☆戯☆王のサブレです\t14\nたまむすび\t14\nネヲチ\t13\n美少女が主人公で犯られちゃうゲーム\t13\n議員\t13\nNo Yuri, No Life.\t13\nおちんこ\t13\n選挙\t12\nガリガリ君\t12\nKeep It 元気！\t12\nはきだめ\t11\n一緒に日本語を読もう！\t11\nTokyo Denki University English\t10\n起業サブレ\t10\n愚痴\t10\nうごくメモ帳\t10\n数学\t10\nkittycups\t9\nr_top_r\t9\n物理学\t9\nomanko\t9\nオルタンシア・サーガ -蒼の騎士団-\t9\nシェンムー\t9\nttete\t9\n風刺漫画\t9\nXBOX総合スレ避難所R\t9\nChinese \u0026gt; All\t8\nダーツ\t8\nチクニー\t8\nJapanese Short Stories\t8\n今日は何の日？\t8\nA Place for Geishas\t7\n税務お役立ち\t7\nmumblememes\t7\ntest\t7\nYour Gateway to \"Real Korean\" Minjokness. No not you Heinz Ward.\t7\n床オナ\t7\n吉祥寺 For stuff about Kichijoji, Tokyo!\t7\nワシワシMAX\t7\nJリーグ・日本サッカー\t7\n歌唱・声楽\t7\nMillipedes Gone Wild\t7\nPracticing Japanese language and translation\t7\nJapaneseVarietyShows\t6\n治療施設\t6\nケイオスドラゴン\t6\nRealtime24\t6\n足の臭い\t6\nwb_dw\t6\nチャットレディー・在宅アルバイト求人\t6\nShadi\u0027s Dreams\t6\nバスケットボール\t6\nペット大好き\t6\nDogecoin Japan\t6\n超銀河船団\t6\nredditでVIPｗｗｗｗｗｗｗｗｗｗ\t6\nDeath Strikes\t6\nNewsokurWatch\t6\nA姦\t6\nJapanese Immersion UR Course Page\t5\nShin Hyesung Fighting!!\t5\nハースストーン\t5\nFridayNightGames\t5\nABEclipse: PLZ SUBCRIBE!!\t5\nchinko\t5\nJapanese Bus Topics\t5\nGOOD!!\t5\nsunagimo\t4\n挨拶をしましょう\t4\nCoolZip\t4\nhellobender\t4\n日本ニュース\t4\njapanunrelatedstuff\t4\npoverty_p\u0027s backroom\t4\nSubreddit for Line Windrunner\t4\nfjeowjfweojfowefiowjfowejfowj\t4\nFor everything Akiba-ke. Idols, hobbies, anime, tenga, onaholes, doujinshi nado\t4\nMoya moya\t4\nDylan Anaya is God\t4\nHoriemon\t4\nニュー速嫌儲\t4\nWaifu\t4\n「ドラゴンズドグマ」のサブレ\t4\n隠れ家\t4\nGunka\t4\nRolePaint\t4\nうんち\t4\nPressInfoSofia_music\t3\nRazerGear\t3\nしりとり\t3\n2ch\t3\nスパムメール保管庫\t3\nおちんぽ\t3\nこの中に○○人××がいます\t3\nAnalyzing Resources\t3\ntest\t3\n民主主義を取り返せ\t3\nrock party, all the fashion\t3\nミカン山\t3\nnewsokunormal\t3\n☆\t3\nsay maan\t3\nMOONGIFT Memo\t3\n理茶夢\t3\nおめこ\t3\ncoursework and that\t3\nGay Nintendo Fans Unite!!\t3\nTokiwa Social Media Work Group\t2\nWIPJapan\t2\nボクの小規模な城\t2\nPersonalSandbox\t2\nHige\t2\nビットサミット\t2\n将棋\t2\nda Test\t2\ncitizen merchandize world wide\t2\nビジュアルノベルR\t2\nライトノベル\t2\nYou\u0027re not in Kansas anymore\t2\nsomewhere to post dumb shit\t2\nオルタンシア・サーガ-蒼の騎士団-\t2\n勢いニュースSniper\t2\nCounter-Strike: Global Offensive\t2\ndumpstering games left n right\t2\nkazu-reddit\t2\nLeague of Legends Japan: A new era will come soon\t2\nHi-lites\t2\nthe real sub the best sub\t2\nTehu\t2\ntest28\t2\n嘘大好き虚言癖しらばっくれ通すぞ同好会\t2\nわたしのアンネット\t2\nThis is the subreddit for the How to Date a Foreigner (App)\t2\nI love to watch and take photograph\t2\npurinxxx\t2\nohayou\t2\nうんこ\t2\nrailway_japan\t2\nEDEN\t2\nHiroyuki\t2\n男の子・女装男子・TSF\t2\nDAKOTA TIER THINGS\t2\nAnimal_Attack-動物に関する画像やニュース-\t2\nfdsgdjd\t2\n流星gay\t2\n極悪Mod家族、創始者/u/VoiceOnFate/\t2\n/u/poverty_p\t2\nreddi大医学部\t2\njapen\t2\nぬりかべ\t2\nJapanese companies\t2\nAnagla掲示板\t2\nfutene\t2\nKerbal Space Program, 日本語版\t2\ndannnnnnngggggg\t2\npangwei\u0027spenis\t2\nMasaki \t2\njapanrelatedstuff\t2\ntest\t2\nSweetsPorno：sweets picture\t2\nチンポ\t2\nThe Cram School\t1\ntest\t1\nchamplasonic reddit\t1\na pleasantly understated URL sequence\t1\nライブでゴーゴー　口コミ　評判\t1\n予防注射してきたよ\t1\nCarsOnCars Official Subreddit!\t1\nShut up nerd\t1\n高品質最安の1000mw防水緑色レーザーポインター\t1\nikemura\t1\nweb2010\t1\nhello\t1\nCentipedes Gone Wild\t1\nyukiwata notes\t1\npop_flower_nine\t1\nitumoo\t1\nwembley.jp has bookmarked them!\t1\nホームページ制作にまつわる備忘録\t1\n風俗MEMORY\t1\nIDOLM@STER(日本語)\t1\njm25p9g\t1\nベビードール ランジェリー通販,セクシーランジェリー 激安,セクシー下着 激安 通販\t1\nニック！\t1\nstoopid andrew\t1\nクラシアン\t1\nLasershowGen\t1\n翻訳テスト\t1\nパン屋\t1\nきつね耳\t1\n専ブラ専用の日本語ユーザー向けのsubreddit集\t1\nssassa\t1\nインターネット(仮)\t1\nLOD ja\t1\nss\t1\nSony PlayStation 78\t1\nNoNoNoFap\t1\n最下層\t1\nNEWSOK\t1\nすなば\t1\n丸呑みR\t1\nIQ80の猿大集合\t1\n加藤恵\t1\n無料フラッシュゲーム集\t1\nWelcome to the Club\t1\nmy subreddit: for experimental\t1\nIQ60の池沼大集合　Club_IQ80に入れなかったあなたのためのサブレ\t1\nNone\t1\nカルマチャージ\t1\nwallhtyy\t1\nLOG\t1\nチラシの裏\t1\n魔理沙とアリスのクッキー☆ストーリア\t1\nハマドファン\t1\nｇ̨́ｒ̨҉͠͏ｉ̨͞ｎ̴͟͢͟ｄ̶̡ａ̵͝҉͜͝ｇ̨̡̛ｅ͘͡҉̸\t1\nメモ帳,text\t1\nmoonlightpeople\u0027s reddit\t1\n実況(仮)\t1\nSubreddit for Test\t1\nYoutuber\t1\n河川・ダム等\t1\nラジオ番組\t1\npopopoipo\t1\nreddit 案内所\t1\n将棋\t1\ntesttesttest\t1\nRedditchan開発\t1\n投資家\t1\nArt of Design\t1\nエフセリア\t1\nMJND - Model Japanese National Diet [国会]\t1\nRedditにようこそ！(日本人向け・日本語圏)\t1\n頭の悪い人間の代表サブレ\t1\n例の新企画\t1\nHONDA スーパーカブ\t1\nゴリランド\t1\ncats\t1\nDemocratic Party of Japan\t1\n犬\t1\n自演乙！\t1\nはじめてのレディット\t1\n選ばれた君はm9 ウンコマン\t1\n世界的規模のバカ\t1\n練習場\t1\n俺用再生リスト\t1\nＺａｒｔａｎ編集部・出張所\t1\n嫌儲R\t1\nわあい\t1\npls help\t1\naudio jp\t1\nバスケットボール\t1\n魔法少女です！\t1\nメンバー募集\t1\nぼくがかんがえたさぶれ\t1\nニュース速報+\t1\nゲーム実況\t1\ncsstestyou\t1\n俺の魚拓サブレ\t1\n萌えアニメでないアニメについて\t1\nガガガ文庫\t1\nMy own subreddit, with blackjack, and hookers!\t1\n今期のアニメについてなんでも\t1\nサブレディット\t1\n2chnet\t1\nすなば\t1\n垢Ban体験\t1\nr_admission_r\t1\n人類の恥 ネトウヨ\t1\nfaggotラブ☆ウンコ\t1\nR版 運用家族\t1\n加齢臭の酷いコードネーム「コバヤシ」\t1\n自動車\t1\nSTAY AWAY\t1\nsolblood\t1\nけんもC\t1\n【Clubmusic】俺用再生リスト\t1\nReddit履歴28日でも立てることができます。\t1\n建設\t1\n絵から音を創造する\t1\nspiraに関して(タイトル)\t1\nnerunerunerune\t1\nエロ漫画・エロ同人総合\t1\nKOUSHIROU3sandbox\t1\n美容情報\t0\nnotcp\t0\nLEFT_PAREN RIGHT_PAREN\t0\nmanzai\t0\n日本のスケーター集まれ！\t0\nThis is Oleg\u0027s World.\t0\nIldaGen\t0\nなんでも実況R\t0\nテスト\t0\nあいうえおかきくけこtestestes\t0\nオラついてるサブレ\t0\nPool\u0027s closed.\t0\n既婚雑談\t0\nkakikuke\t0\n(╭☞•́⍛•̀)╭☞それな\t0\nDownload\t0\nニュー速alternative\t0\nカルトDV教サブレ\t0\nアンパンマン\t0\nasdferweerwrer\t0\n1zb0h8rvop\t0\n～総合サブレ\t0\n蘚苔類\t0\n"
+      },
+      "dateCreated": "Dec 6, 2015 12:25:53 PM",
+      "dateStarted": "Dec 6, 2015 12:33:38 PM",
+      "dateFinished": "Dec 6, 2015 12:33:41 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Load Data",
+      "text": "val subreddits \u003d sqlContext.read.json(DataLocation + \"subreddits\")\nsubreddits.registerTempTable(\"subreddits\")",
+      "dateUpdated": "Dec 6, 2015 12:20:12 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1449400692473_-1377841118",
+      "id": "20151206-121812_1445391401",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "subreddits: org.apache.spark.sql.DataFrame \u003d [banner_img: string, banner_size: array\u003cbigint\u003e, collapse_deleted_comments: boolean, comment_score_hide_mins: bigint, created: bigint, created_utc: bigint, description: string, description_html: string, display_name: string, header_img: string, header_size: array\u003cbigint\u003e, header_title: string, hide_ads: boolean, icon_img: string, icon_size: array\u003cbigint\u003e, id: string, lang: string, name: string, over18: boolean, public_description: string, public_description_html: string, public_traffic: boolean, quarantine: boolean, submission_type: string, submit_link_label: string, submit_text: string, submit_text_html: string, submit_text_label: string, subreddit_type: string, subscribers: bigint, title: string, url: string, user_sr_theme_enabled: boolean]\n"
+      },
+      "dateCreated": "Dec 6, 2015 12:18:12 PM",
+      "dateStarted": "Dec 6, 2015 12:20:03 PM",
+      "dateFinished": "Dec 6, 2015 12:20:13 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Constants",
+      "text": "val DataLocation \u003d \"/Users/taylorpeer/Projects/BI/data/\"",
+      "dateUpdated": "Dec 6, 2015 12:20:20 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "title": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1449400737755_764653651",
+      "id": "20151206-121857_777102930",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "DataLocation: String \u003d /Users/taylorpeer/Projects/BI/data/\n"
+      },
+      "dateCreated": "Dec 6, 2015 12:18:57 PM",
+      "dateStarted": "Dec 6, 2015 12:19:20 PM",
+      "dateFinished": "Dec 6, 2015 12:19:20 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Subreddit Analysis",
+  "id": "SUBREDDIT",
+  "angularObjects": {
+    "2B5X9WYQZ": [],
+    "2B5T346ZN": [],
+    "2B56F97FV": [],
+    "2B6739RWM": [],
+    "2B8RQ9MXY": [],
+    "2B7BHGNTN": [],
+    "2B8MPEJT3": [],
+    "2B6EC6BP7": [],
+    "2B5YFH8P8": [],
+    "2B5T2XRFM": [],
+    "2B6UUAHSF": [],
+    "2B7CCZ9PU": [],
+    "2B762EZQS": []
+  },
+  "config": {
+    "looknfeel": "report"
+  },
+  "info": {}
+}

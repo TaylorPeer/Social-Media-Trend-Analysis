@@ -5,18 +5,15 @@
 	<artifactId>social-media-trend-analysis</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<properties>
-		<!-- Scala -->
-		<scala.version>2.10.4</scala.version>
-		<scala.binary.version>2.10</scala.binary.version>
-		<scala.macros.version>2.0.1</scala.macros.version>
-		<scalatest.version>2.2.1</scalatest.version>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.spark</groupId>
 			<artifactId>spark-core_2.10</artifactId>
+			<version>1.5.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-sql_2.10</artifactId>
 			<version>1.5.2</version>
 		</dependency>
 	</dependencies>
