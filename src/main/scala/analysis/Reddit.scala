@@ -26,7 +26,7 @@ object Reddit {
 
     case class Post(
       text: String,
-      created_at: Long,
+      created_at: String,
       platform: String,
       popularity: Long)
 
@@ -43,7 +43,7 @@ object Reddit {
           val text = row.getString(textIndex)
           val createdAt = row.getString(createdAtIndex)
           val popularity = row.getString(reweetsIndex).replaceAll("\\+", "").toLong
-          Post(text, popularity, "Twitter", popularity)
+          Post(text, createdAt, "Twitter", popularity)
       }
       return postsRDD
     }
@@ -57,11 +57,18 @@ object Reddit {
         row =>
           val textIndex = row.fieldIndex("body")
           val createdAtIndex = row.fieldIndex("created_utc")
+          
+          import java.time._
+          val utcZoneId = ZoneId.of("UTC")
+          val zonedDateTime = ZonedDateTime.now
+          val utcDateTime = zonedDateTime.withZoneSameInstant(utcZoneId)
+          
+          
           val ups = row.fieldIndex("ups")
           val text = row.getString(textIndex)
-          val createdAt = row.getString(createdAtIndex).toLong
+          val createdAt = row.getString(createdAtIndex)
           val popularity = row.getLong(ups)
-          Post(text, createdAt, "Twitter", popularity)
+          Post(text, createdAt, "Reddit", popularity)
       }
       return postsRDD
     }
@@ -88,12 +95,13 @@ object Reddit {
       return topWords;
     }
 
-    /*
     redditRDD = redditRDD.filter(post => post.popularity >= 100)
     val wordCounts = computeTopTerms(redditRDD, 20)
     println(redditRDD.count() + " redditRDD posts loaded.")
     wordCounts.foreach(println)
-    */
+    
+    var output = ""
+    wordCounts.foreach(l => output = output + l._1 + "\t" + l._2 + "\n")
 
     def convertOccurencesToRanks(termOccurences: Array[(String, Int)]): Array[(String, Int)] = {
       val sorted = termOccurences.sortBy(_._2).reverse
@@ -124,8 +132,7 @@ object Reddit {
     }
 
     // tweetsRDD = sc.parallelize(tweetsRDD.takeSample(false, 100000, 4372))
-
-    /*
+    
     val tweets2012 = tweetsRDD.filter(Post => Post.created_at.contains("2012"))
     val tweets2014 = tweetsRDD.filter(Post => Post.created_at.contains("2014"))
     val topTweetTerms2012 = computeTopTerms(tweets2012, 100)
@@ -138,7 +145,6 @@ object Reddit {
     tweetRankChanges.take(10).foreach(println)
     println("Moving up:")
     tweetRankChanges.reverse.take(10).foreach(println)
-    */
 
     // redditRDD = sc.parallelize(redditRDD.takeSample(false, 100000, 4372))
 
