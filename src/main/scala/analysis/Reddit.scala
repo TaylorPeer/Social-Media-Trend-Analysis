@@ -57,13 +57,12 @@ object Reddit {
         row =>
           val textIndex = row.fieldIndex("body")
           val createdAtIndex = row.fieldIndex("created_utc")
-          
+
           import java.time._
           val utcZoneId = ZoneId.of("UTC")
           val zonedDateTime = ZonedDateTime.now
           val utcDateTime = zonedDateTime.withZoneSameInstant(utcZoneId)
-          
-          
+
           val ups = row.fieldIndex("ups")
           val text = row.getString(textIndex)
           val createdAt = row.getString(createdAtIndex)
@@ -95,11 +94,39 @@ object Reddit {
       return topWords;
     }
 
+    def round(i: Double, v: Integer): Integer = {
+      return (Math.round(i / v) * v).toInt
+    }
+
+    def computeLengths(postRdd: RDD[Post]): Array[(Integer, Int)] = {
+      val lengthCounts = postRdd.filter(t => t.text != "[deleted]").map(
+        p =>
+          if (p.platform == "Twitter" && p.text.length() > 140) (round(p.text.length(), 5), 0) else (round(p.text.length(), 5), 1))
+        .reduceByKey(_ + _).sortBy(_._2)
+      val lengths = lengthCounts.takeOrdered(1000)(Ordering[Int].on(x => x._1))
+      return lengths;
+    }
+    
+    Stopwords.toSeq.sorted
+    
+    val redditLengths = computeLengths(redditRDD)
+    val twitterLengths = computeLengths(tweetsRDD)
+
+    def convertLengthsToOutputText(first: Array[(Integer, Int)], second: Array[(Integer, Int)]): String = {
+      var output = "%table Length" + "\t" + "Reddit" + "\t" + "Twitter" + "\n"
+      var i = 0
+      for (a <- 1 to 100) {
+        output = output + (a) * 5 + "\t" + first(a)._2 + "\t" + (if (a * 5 <= 140) second(a)._2 else "0") + "\n"
+        // output = output + (a+1) + "\t" + first(a)._2 + "\t" + second(a)._2 + "\n"
+      }
+      return output
+    }
+
     redditRDD = redditRDD.filter(post => post.popularity >= 100)
     val wordCounts = computeTopTerms(redditRDD, 20)
     println(redditRDD.count() + " redditRDD posts loaded.")
     wordCounts.foreach(println)
-    
+
     var output = ""
     wordCounts.foreach(l => output = output + l._1 + "\t" + l._2 + "\n")
 
@@ -131,8 +158,8 @@ object Reddit {
       return 0;
     }
 
-    // tweetsRDD = sc.parallelize(tweetsRDD.takeSample(false, 100000, 4372))
-    
+    tweetsRDD = sc.parallelize(tweetsRDD.takeSample(false, 100000, 4372))
+
     val tweets2012 = tweetsRDD.filter(Post => Post.created_at.contains("2012"))
     val tweets2014 = tweetsRDD.filter(Post => Post.created_at.contains("2014"))
     val topTweetTerms2012 = computeTopTerms(tweets2012, 100)
@@ -169,12 +196,63 @@ object Reddit {
     redditRDD = redditRDD.filter(post => post.text.contains("sopa"))
     val twitterWordCounts = computeTopTerms(tweetsRDD, 20)
     val redditWordCounts = computeTopTerms(redditRDD, 20)
-    
+
     println("Twitter:")
     twitterWordCounts.foreach(println)
-    
+
     println("Reddit:")
     redditWordCounts.foreach(println)
+    
+    val term = "obama"
+    val filteredTweetsRDD = tweetsRDD.filter(post => post.text.contains(term))
+    val filteredRedditRDD = redditRDD.filter(post => post.text.contains(term))
+    val twitterWordCounts2 = computeTopTerms(filteredTweetsRDD, 1000).filter(entry => entry._1 != term)
+    val redditWordCounts2 = computeTopTerms(filteredRedditRDD, 1000).filter(entry => entry._1 != term)
+    var combinedWordCounts = ( twitterWordCounts2 ++ redditWordCounts2 ).groupBy( _._1 ).map( kv => (kv._1, kv._2.map( _._2).sum ) ).toList
+
+    def convertCooccurenceCountsToOutputText(combined: List[(String, Int)], reddit: Array[(String, Int)], twitter: Array[(String, Int)]): String = {
+      var output = "%table Term" + "\t" + "Reddit" + "\t" + "Twitter" + "\n"
+      var i = 0
+      combined.foreach {
+        entry =>
+          val r = if (reddit.toMap.get(entry._1).isDefined) reddit.toMap.get(entry._1).get else 0
+          val t = if (twitter.toMap.get(entry._1).isDefined) twitter.toMap.get(entry._1).get else 0
+          output = output + entry._1 + "\t" + r + "\t" + t + "\n"
+
+      }
+      return output
+    }
+    
+    def computeTotalWordCount(postRdd: RDD[Post]): Long = {
+      val words = postRdd.flatMap(t => t.text.toLowerCase().replaceAll("\\.", "").replaceAll("\\,", "").replaceAll("\\n", "").trim().split(" "))
+      val filteredWords = words.filter(word => !Stopwords.contains(word)).filter(word => word.length() > 1)
+      return filteredWords.count()
+    }
+    
+    
+    
+    import org.apache.spark.sql.Row;
+    import org.apache.spark.sql.types.{StructType,StructField,StringType};
+    
+    val words = tweetsRDD.flatMap(t => t.text.toLowerCase().replaceAll("\\.", "").replaceAll("\\,", "").trim().split(" "))
+    val filteredWords = words.filter(word => !Stopwords.contains(word)).filter(word => word.length() > 1)
+    
+    // The schema encoded as string
+    val schemaString = "text"
+    
+    // Generate the schema based on the string of schema
+    val schema =
+      StructType(
+        schemaString.split(" ").map(fieldName => StructField(fieldName, StringType, true)))
+    
+    // Convert records of the RDD (people) to Rows.
+    val rowRDD = filteredWords.map(entry => (Row(entry)))
+    
+    // Apply the schema to the RDD.
+    val tweetTermsDF = sqlContext.createDataFrame(rowRDD, schema)
+    
+    // Register the DataFrames as a table.
+    tweetTermsDF.registerTempTable("tweet_terms")
     
     /*
     def computeUniqueTerms(first: Array[(String, Int)], second: Array[(String, Int)]): Array[(String, Int, Int, Int)] = {

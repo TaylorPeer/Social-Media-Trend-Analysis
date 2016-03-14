@@ -3,7 +3,7 @@
     {
       "title": "Reddit Top Terms",
       "text": "val wordCounts \u003d computeTopTerms(redditRDD, 20)\nprintln(convertTermCountsToOutputText(wordCounts))",
-      "dateUpdated": "Mar 13, 2016 4:53:28 PM",
+      "dateUpdated": "Mar 14, 2016 5:01:31 PM",
       "config": {
         "colWidth": 6.0,
         "graph": {
@@ -51,18 +51,18 @@
       "result": {
         "code": "SUCCESS",
         "type": "TABLE",
-        "msg": "Term\tOccurrences\njust\t13891\nlike\t12952\npeople\t8115\n[deleted]\t7194\nthink\t7114\nreally\t6117\nknow\t5874\ntime\t5596\ngood\t5427\nmake\t4611\nwant\t4274\nthat\u0027s\t4190\nyou\u0027re\t4184\nway\t4021\ngoing\t3775\ngame\t3470\ndid\t3372\ni\u0027ve\t3355\nsay\t3319\nneed\t3306\n\n"
+        "msg": "Term\tOccurrences\npeople\t12030\n[deleted]\t10923\ntime\t8420\ngame\t5277\nsay\t5026\nright\t4622\npretty\t4531\nsure\t4454\nactually\t4440\nbetter\t4410\nuse\t4370\nlot\t4329\nthing\t4307\nwork\t4158\nnew\t3711\nlove\t3620\nlook\t3598\nfeel\t3507\nprobably\t3480\ngreat\t3383\n\n"
       },
       "dateCreated": "Mar 13, 2016 1:51:35 PM",
-      "dateStarted": "Mar 13, 2016 4:51:57 PM",
-      "dateFinished": "Mar 13, 2016 4:51:59 PM",
+      "dateStarted": "Mar 14, 2016 5:00:52 PM",
+      "dateFinished": "Mar 14, 2016 5:00:55 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Twitter Top Terms",
       "text": "val wordCounts \u003d computeTopTerms(tweetsRDD, 20)\nprintln(convertTermCountsToOutputText(wordCounts))",
-      "dateUpdated": "Mar 13, 2016 4:53:29 PM",
+      "dateUpdated": "Mar 14, 2016 5:01:33 PM",
       "config": {
         "colWidth": 6.0,
         "graph": {
@@ -111,18 +111,18 @@
       "result": {
         "code": "SUCCESS",
         "type": "TABLE",
-        "msg": "Term\tOccurrences\nrt\t29579\njust\t3506\nlike\t3281\nlol\t2869\nlove\t2536\n:)\t2166\nknow\t1798\ngood\t1707\nwant\t1652\nnew\t1577\npeople\t1511\nfollow\t1490\nque\t1468\ntime\t1368\nday\t1290\nneed\t1250\nhaha\t1168\nmake\t1138\nthink\t1136\nshit\t1118\n\n"
+        "msg": "Term\tOccurrences\nrt\t145954\nlol\t14111\nlove\t12628\n:)\t11075\nnew\t7814\nque\t7626\npeople\t7615\nfollow\t7192\ntime\t6793\nday\t6642\nhaha\t6104\nshit\t5043\n\\u0645\\u0646\t5027\nya\t4982\ntoday\t4735\n:d\t4729\nlife\t4508\nright\t4465\ndi\t4440\nhappy\t4420\n\n"
       },
       "dateCreated": "Mar 13, 2016 2:37:34 PM",
-      "dateStarted": "Mar 13, 2016 4:51:55 PM",
-      "dateFinished": "Mar 13, 2016 4:51:57 PM",
+      "dateStarted": "Mar 14, 2016 5:00:52 PM",
+      "dateFinished": "Mar 14, 2016 5:01:05 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Reddit Top Terms in Popular Posts",
       "text": "val topRedditRDD \u003d redditRDD.filter(post \u003d\u003e post.popularity \u003e\u003d 100)\nval wordCounts \u003d computeTopTerms(topRedditRDD, 20)\nprintln(convertTermCountsToOutputText(wordCounts))",
-      "dateUpdated": "Mar 13, 2016 4:53:48 PM",
+      "dateUpdated": "Mar 14, 2016 5:01:35 PM",
       "config": {
         "colWidth": 6.0,
         "graph": {
@@ -144,7 +144,18 @@
             }
           ],
           "groups": [],
-          "scatter": {}
+          "scatter": {
+            "xAxis": {
+              "name": "Term",
+              "index": 0.0,
+              "aggr": "sum"
+            },
+            "yAxis": {
+              "name": "Occurrences",
+              "index": 1.0,
+              "aggr": "sum"
+            }
+          }
         },
         "editorMode": "ace/mode/scala",
         "tableHide": false,
@@ -160,18 +171,18 @@
       "result": {
         "code": "SUCCESS",
         "type": "TABLE",
-        "msg": "Term\tOccurrences\nlike\t113\njust\t98\npeople\t77\nenhancement\t59\nsuite](http://redditenhancementsuitecom)[reddit\t58\ntime\t50\nthink\t44\nreally\t41\nmake\t37\nthat\u0027s\t37\nway\t33\ngood\t33\nknow\t32\nright\t30\nwant\t28\ngame\t27\nsay\t27\ngoing\t27\ni\u0027ve\t26\nguy\t25\n\n"
+        "msg": "Term\tOccurrences\npeople\t76\ntime\t42\nactually\t39\nguy\t34\nhe\u0027s\t30\nyears\t28\nright\t24\nsay\t24\ngame\t24\nfuck\t24\nlook\t23\nbetter\t23\n[deleted]\t22\nshit\t22\nlooks\t21\nwomen\t21\nreddit\t21\nday\t21\nlife\t21\nplay\t20\n\n"
       },
       "dateCreated": "Mar 13, 2016 4:29:25 PM",
-      "dateStarted": "Mar 13, 2016 4:51:39 PM",
-      "dateFinished": "Mar 13, 2016 4:51:40 PM",
+      "dateStarted": "Mar 14, 2016 5:00:55 PM",
+      "dateFinished": "Mar 14, 2016 5:01:07 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Twitter Top Terms In Popular Tweets",
       "text": "val topTweetsRDD \u003d tweetsRDD.filter(post \u003d\u003e post.popularity \u003e\u003d 100)\nval wordCounts \u003d computeTopTerms(topTweetsRDD, 20)\nprintln(convertTermCountsToOutputText(wordCounts))",
-      "dateUpdated": "Mar 13, 2016 4:53:58 PM",
+      "dateUpdated": "Mar 14, 2016 5:01:37 PM",
       "config": {
         "colWidth": 6.0,
         "graph": {
@@ -208,18 +219,137 @@
       "result": {
         "code": "SUCCESS",
         "type": "TABLE",
-        "msg": "Term\tOccurrences\nrt\t1870\nlike\t133\njust\t103\nlove\t98\npeople\t93\n@xstrology:\t69\nlife\t64\nwant\t63\nknow\t62\nmake\t54\nyou\u0027re\t51\nque\t49\nthink\t49\ntime\t48\nthings\t44\n\\u263a\t41\nfriends\t40\nhate\t39\nsay\t38\ngirl\t38\n\n"
+        "msg": "Term\tOccurrences\nrt\t8932\nlove\t495\npeople\t450\n@xstrology:\t273\nlife\t258\ntime\t233\nque\t229\nsay\t185\nperson\t180\nhate\t178\nbest\t165\nmoment\t163\nnew\t150\nfeel\t146\ngirl\t145\nday\t144\n@autocorrects:\t140\ngod\t138\nfriends\t137\nhappy\t134\n\n"
       },
       "dateCreated": "Mar 13, 2016 4:29:44 PM",
-      "dateStarted": "Mar 13, 2016 4:51:26 PM",
-      "dateFinished": "Mar 13, 2016 4:51:27 PM",
+      "dateStarted": "Mar 14, 2016 5:01:06 PM",
+      "dateFinished": "Mar 14, 2016 5:01:08 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Reddit Upward Trending Terms",
+      "text": "val reddit2012 \u003d redditRDD.filter(Post \u003d\u003e Post.created_at.toLong \u003c 1359529600)\nval reddit2014 \u003d redditRDD.filter(Post \u003d\u003e Post.created_at.toLong \u003e 1359529600)\nval topRedditTerms2012 \u003d computeTopTerms(reddit2012, 100)\nval topRedditTerms2014 \u003d computeTopTerms(reddit2014, 100)\nval redditTermRanks2012 \u003d convertOccurencesToRanks(topRedditTerms2012)\nval redditTermRanks2014 \u003d convertOccurencesToRanks(topRedditTerms2014)\nvar redditRankChanges \u003d computeTermRankChanges(redditTermRanks2012, redditTermRanks2014).sortBy(_._4).reverse\nredditRankChanges \u003d redditRankChanges.filter(entry \u003d\u003e entry._3 !\u003d 0)\nprintln(convertRankChangesToOutputText(redditRankChanges.take(20)))\n\n",
+      "dateUpdated": "Mar 14, 2016 5:01:39 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "multiBarChart",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [
+            {
+              "name": "Term",
+              "index": 0.0,
+              "aggr": "sum"
+            }
+          ],
+          "values": [
+            {
+              "name": "Change",
+              "index": 3.0,
+              "aggr": "sum"
+            }
+          ],
+          "groups": [],
+          "scatter": {
+            "xAxis": {
+              "name": "Term",
+              "index": 0.0,
+              "aggr": "sum"
+            },
+            "yAxis": {
+              "name": "January, 2012",
+              "index": 1.0,
+              "aggr": "sum"
+            }
+          }
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": true,
+        "title": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1457957975170_973208809",
+      "id": "20160314-131935_269368591",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TABLE",
+        "msg": "Term\tJanuary, 2012\tSeptember, 2014\tChange\nthanks\t64\t40\t24\npost\t60\t36\t24\nplay\t42\t22\t20\nable\t89\t70\t19\n:)\t83\t64\t19\nfar\t94\t76\t18\nyeah\t49\t32\t17\nhard\t71\t55\t16\ngetting\t45\t31\t14\nmaybe\t47\t34\t13\nwouldn\u0027t\t91\t79\t12\nbit\t65\t53\t12\ngame\t14\t4\t10\nmaking\t90\t81\t9\nlooking\t78\t69\t9\nlooks\t70\t61\t9\nusing\t85\t78\t7\nyear\t43\t37\t6\nseen\t98\t94\t4\nend\t67\t63\t4\n\n"
+      },
+      "dateCreated": "Mar 14, 2016 1:19:35 PM",
+      "dateStarted": "Mar 14, 2016 5:01:07 PM",
+      "dateFinished": "Mar 14, 2016 5:01:14 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Twitter Upward Trending Terms",
+      "text": "val tweets2012 \u003d tweetsRDD.filter(Post \u003d\u003e Post.created_at.contains(\"2012\"))\nval tweets2014 \u003d tweetsRDD.filter(Post \u003d\u003e Post.created_at.contains(\"2014\"))\nval topTweetTerms2012 \u003d computeTopTerms(tweets2012, 100)\nval topTweetTerms2014 \u003d computeTopTerms(tweets2014, 100)\nval twitterTermRanks2012 \u003d convertOccurencesToRanks(topTweetTerms2012)\nval twitterTermRanks2014 \u003d convertOccurencesToRanks(topTweetTerms2014)\nvar tweetRankChanges \u003d computeTermRankChanges(twitterTermRanks2012, twitterTermRanks2014).sortBy(_._4).reverse\n\ntweetRankChanges \u003d tweetRankChanges.filter(entry \u003d\u003e entry._3 !\u003d 0)\nprintln(convertRankChangesToOutputText(tweetRankChanges.take(20)))",
+      "dateUpdated": "Mar 14, 2016 5:01:40 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "multiBarChart",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [
+            {
+              "name": "Term",
+              "index": 0.0,
+              "aggr": "sum"
+            }
+          ],
+          "values": [
+            {
+              "name": "Change",
+              "index": 3.0,
+              "aggr": "sum"
+            }
+          ],
+          "groups": [],
+          "scatter": {
+            "xAxis": {
+              "name": "Term",
+              "index": 0.0,
+              "aggr": "sum"
+            },
+            "yAxis": {
+              "name": "January, 2012",
+              "index": 1.0,
+              "aggr": "sum"
+            }
+          }
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1457958371615_2094566318",
+      "id": "20160314-132611_1818009418",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TABLE",
+        "msg": "Term\tJanuary, 2012\tSeptember, 2014\tChange\n\\u0641\\u064a\t77\t10\t67\n\\u0645\\u0646\t46\t6\t40\ngreat\t72\t35\t37\nwatch\t99\t64\t35\ngod\t96\t67\t29\nschool\t53\t26\t27\nna\t51\t24\t27\nyang\t62\t36\t26\nthanks\t55\t29\t26\ngame\t69\t46\t23\nreal\t68\t45\t23\ngetting\t85\t66\t19\nhappy\t31\t13\t18\nlife\t29\t12\t17\nwait\t97\t83\t14\nhope\t87\t75\t12\ngirl\t44\t33\t11\ntonight\t100\t90\t10\nmiss\t58\t48\t10\nlook\t41\t31\t10\n\n"
+      },
+      "dateCreated": "Mar 14, 2016 1:26:11 PM",
+      "dateStarted": "Mar 14, 2016 5:01:09 PM",
+      "dateFinished": "Mar 14, 2016 5:01:25 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Reddit Downward Trending Terms",
-      "text": "val reddit2012 \u003d redditRDD.filter(Post \u003d\u003e Post.created_at.toLong \u003c 1359529600)\nval reddit2014 \u003d redditRDD.filter(Post \u003d\u003e Post.created_at.toLong \u003e 1359529600)\nval topRedditTerms2012 \u003d computeTopTerms(reddit2012, 100)\nval topRedditTerms2014 \u003d computeTopTerms(reddit2014, 100)\nval redditTermRanks2012 \u003d convertOccurencesToRanks(topRedditTerms2012)\nval redditTermRanks2014 \u003d convertOccurencesToRanks(topRedditTerms2014)\nvar redditRankChanges \u003d computeTermRankChanges(redditTermRanks2012, redditTermRanks2014).sortBy(_._4)\nredditRankChanges \u003d redditRankChanges.filter(entry \u003d\u003e entry._3 !\u003d 0)\nprintln(convertRankChangesToOutputText(redditRankChanges.take(10)))\n\n",
-      "dateUpdated": "Mar 13, 2016 4:53:17 PM",
+      "text": "val reddit2012 \u003d redditRDD.filter(Post \u003d\u003e Post.created_at.toLong \u003c 1359529600)\nval reddit2014 \u003d redditRDD.filter(Post \u003d\u003e Post.created_at.toLong \u003e 1359529600)\nval topRedditTerms2012 \u003d computeTopTerms(reddit2012, 100)\nval topRedditTerms2014 \u003d computeTopTerms(reddit2014, 100)\nval redditTermRanks2012 \u003d convertOccurencesToRanks(topRedditTerms2012)\nval redditTermRanks2014 \u003d convertOccurencesToRanks(topRedditTerms2014)\nvar redditRankChanges \u003d computeTermRankChanges(redditTermRanks2012, redditTermRanks2014).sortBy(_._4)\nredditRankChanges \u003d redditRankChanges.filter(entry \u003d\u003e entry._3 !\u003d 0)\nprintln(convertRankChangesToOutputText(redditRankChanges.take(20)))\n\n",
+      "dateUpdated": "Mar 14, 2016 5:01:43 PM",
       "config": {
         "colWidth": 6.0,
         "graph": {
@@ -267,18 +397,18 @@
       "result": {
         "code": "SUCCESS",
         "type": "TABLE",
-        "msg": "Term\tJanuary, 2012\tSeptember, 2014\tChange\nread\t66\t95\t-29\nguy\t51\t74\t-23\nfuck\t77\t99\t-22\nthought\t48\t69\t-21\nhaving\t59\t79\t-20\nmakes\t56\t71\t-15\ncome\t65\t80\t-15\nmoney\t69\t82\t-13\ntell\t87\t100\t-13\nwork\t22\t32\t-10\n\n"
+        "msg": "Term\tJanuary, 2012\tSeptember, 2014\tChange\nbelieve\t53\t88\t-35\nread\t38\t68\t-30\nidea\t55\t83\t-28\nthought\t30\t48\t-18\ntell\t61\t77\t-16\nworld\t68\t84\t-16\nreal\t81\t96\t-15\nwrong\t77\t91\t-14\nlife\t37\t50\t-13\nfucking\t63\t75\t-12\nguy\t34\t45\t-11\nmoney\t51\t62\t-11\nperson\t56\t67\t-11\noh\t75\t86\t-11\ntimes\t87\t98\t-11\nlive\t88\t99\t-11\nsaying\t62\t71\t-9\nthing\t6\t14\t-8\nmakes\t36\t44\t-8\ndifferent\t35\t42\t-7\n\n"
       },
       "dateCreated": "Mar 13, 2016 3:57:25 PM",
-      "dateStarted": "Mar 13, 2016 4:51:10 PM",
-      "dateFinished": "Mar 13, 2016 4:51:17 PM",
+      "dateStarted": "Mar 14, 2016 5:01:14 PM",
+      "dateFinished": "Mar 14, 2016 5:01:31 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Twitter Downward Trending Terms",
-      "text": "val tweets2012 \u003d tweetsRDD.filter(Post \u003d\u003e Post.created_at.contains(\"2012\"))\nval tweets2014 \u003d tweetsRDD.filter(Post \u003d\u003e Post.created_at.contains(\"2014\"))\nval topTweetTerms2012 \u003d computeTopTerms(tweets2012, 100)\nval topTweetTerms2014 \u003d computeTopTerms(tweets2014, 100)\nval twitterTermRanks2012 \u003d convertOccurencesToRanks(topTweetTerms2012)\nval twitterTermRanks2014 \u003d convertOccurencesToRanks(topTweetTerms2014)\nvar tweetRankChanges \u003d computeTermRankChanges(twitterTermRanks2012, twitterTermRanks2014).sortBy(_._4)\ntweetRankChanges \u003d tweetRankChanges.filter(entry \u003d\u003e entry._3 !\u003d 0)\nprintln(convertRankChangesToOutputText(tweetRankChanges.take(10)))\n\n",
-      "dateUpdated": "Mar 13, 2016 4:53:20 PM",
+      "text": "val tweets2012 \u003d tweetsRDD.filter(Post \u003d\u003e Post.created_at.contains(\"2012\"))\nval tweets2014 \u003d tweetsRDD.filter(Post \u003d\u003e Post.created_at.contains(\"2014\"))\nval topTweetTerms2012 \u003d computeTopTerms(tweets2012, 100)\nval topTweetTerms2014 \u003d computeTopTerms(tweets2014, 100)\nval twitterTermRanks2012 \u003d convertOccurencesToRanks(topTweetTerms2012)\nval twitterTermRanks2014 \u003d convertOccurencesToRanks(topTweetTerms2014)\nvar tweetRankChanges \u003d computeTermRankChanges(twitterTermRanks2012, twitterTermRanks2014).sortBy(_._4)\ntweetRankChanges \u003d tweetRankChanges.filter(entry \u003d\u003e entry._3 !\u003d 0)\nprintln(convertRankChangesToOutputText(tweetRankChanges.take(20)))\n\n",
+      "dateUpdated": "Mar 14, 2016 5:01:45 PM",
       "config": {
         "colWidth": 6.0,
         "graph": {
@@ -327,18 +457,208 @@
       "result": {
         "code": "SUCCESS",
         "type": "TABLE",
-        "msg": "Term\tJanuary, 2012\tSeptember, 2014\tChange\nyg\t27\t98\t-71\nhaha\t11\t77\t-66\nen\t40\t85\t-45\nya\t22\t62\t-40\naku\t36\t74\t-38\noh\t35\t65\t-30\nhate\t41\t69\t-28\ntwitter\t43\t67\t-24\ntell\t75\t99\t-24\nque\t9\t32\t-23\n\n"
+        "msg": "Term\tJanuary, 2012\tSeptember, 2014\tChange\nyg\t16\t74\t-58\nhahaha\t43\t99\t-56\nhaha\t6\t50\t-44\nen\t32\t68\t-36\naku\t27\t59\t-32\ntell\t61\t92\t-31\noh\t19\t47\t-28\nass\t38\t62\t-24\ntweet\t71\t95\t-24\nya\t13\t32\t-19\ndan\t66\t85\t-19\nte\t74\t93\t-19\nur\t79\t98\t-19\nsay\t15\t30\t-15\nque\t5\t18\t-13\n:)\t3\t15\t-12\nhate\t34\t43\t-9\nhome\t60\t69\t-9\nfeel\t33\t41\t-8\nlol\t2\t9\t-7\n\n"
       },
       "dateCreated": "Mar 13, 2016 2:51:10 PM",
-      "dateStarted": "Mar 13, 2016 4:51:08 PM",
-      "dateFinished": "Mar 13, 2016 4:51:13 PM",
+      "dateStarted": "Mar 14, 2016 5:01:26 PM",
+      "dateFinished": "Mar 14, 2016 5:01:44 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Query functions",
-      "text": "def computeTopTerms(postRdd: RDD[Post], count: Int): Array[(String, Int)] \u003d {\n  val words \u003d postRdd.flatMap(t \u003d\u003e t.text.toLowerCase().replaceAll(\"\\\\.\", \"\").replaceAll(\"\\\\,\", \"\").trim().split(\" \"))\n  val filteredWords \u003d words.filter(word \u003d\u003e !Stopwords.contains(word)).filter(word \u003d\u003e word.length() \u003e 1)\n  val wordCounts \u003d filteredWords.map(word \u003d\u003e (word, 1)).reduceByKey(_ + _).sortBy(_._2)\n  val topWords \u003d wordCounts.takeOrdered(count)(Ordering[Int].reverse.on(x \u003d\u003e x._2))\n  return topWords;\n}\n\ndef convertOccurencesToRanks(termOccurences: Array[(String, Int)]): Array[(String, Int)] \u003d {\n  val sorted \u003d termOccurences.sortBy(_._2).reverse\n  var rank \u003d 0\n  val ranked \u003d sorted.map {\n    f \u003d\u003e\n      rank \u003d rank + 1\n      (f._1, rank)\n  }\n  return ranked\n}\n\ndef lookupRank(term: String, termRanks: Array[(String, Int)]): Int \u003d {\n  termRanks.filter(entry \u003d\u003e entry._1 \u003d\u003d term).foreach(x \u003d\u003e return x._2)\n  return 0;\n}\n\ndef computeTermRankChanges(before: Array[(String, Int)], after: Array[(String, Int)]): Array[(String, Int, Int, Int)] \u003d {\n  val rankChanges \u003d before.map {\n    entry \u003d\u003e\n      val term \u003d entry._1\n      val rankBefore \u003d entry._2\n      val rankAfter \u003d lookupRank(term, after)\n      val rankChange \u003d rankBefore - rankAfter\n      (term, rankBefore, rankAfter, rankChange)\n  }.filter(entry \u003d\u003e entry._2 !\u003d 0)\n  return rankChanges\n}\n\ndef convertTermCountsToOutputText(termCounts: Array[(String, Int)]): String \u003d {\n    var output \u003d \"%table Term\" + \"\\t\" + \"Occurrences\" + \"\\n\"\n    termCounts.foreach(l \u003d\u003e (output \u003d output + l._1 + \"\\t\" + l._2 + \"\\n\"))\n    return output\n}\n\ndef convertRankChangesToOutputText(rankChanges: Array[(String, Int, Int, Int)]): String \u003d {\n    var output \u003d \"%table Term\" + \"\\t\" + \"January, 2012\" + \"\\t\" + \"September, 2014\" + \"\\t\" + \"Change\" + \"\\n\"\n    rankChanges.foreach(l \u003d\u003e (output \u003d output + l._1 + \"\\t\" + l._2 + \"\\t\" + l._3 + \"\\t\" + l._4 + \"\\n\"))\n    return output\n}",
-      "dateUpdated": "Mar 13, 2016 4:50:53 PM",
+      "title": "Length of Posts (in Characters)",
+      "text": "def round(i: Double, v: Integer): Integer \u003d {\n    return (Math.round(i / v) * v).toInt\n}\n\ndef computeLengths(postRdd: RDD[Post]): Array[(Integer, Int)] \u003d {\n    val lengthCounts \u003d postRdd.filter(t \u003d\u003e t.text !\u003d \"[deleted]\").map(\n        p \u003d\u003e if (p.platform \u003d\u003d \"Twitter\" \u0026\u0026 p.text.length() \u003e 140) (round(p.text.length(), 5), 0) else (round(p.text.length(), 5), 1))\n            .reduceByKey(_ + _).sortBy(_._2)\n    val lengths \u003d lengthCounts.takeOrdered(1000)(Ordering[Int].on(x \u003d\u003e x._1))\n    return lengths;\n}\nval redditLengths \u003d computeLengths(redditRDD)\nval twitterLengths \u003d computeLengths(tweetsRDD)\n\ndef convertLengthsToOutputText(first: Array[(Integer, Int)], second: Array[(Integer, Int)]): String \u003d {\n    var output \u003d \"%table Length\" + \"\\t\" + \"Reddit\" + \"\\t\" + \"Twitter\" + \"\\n\"\n    var i \u003d 0\n    for (a \u003c- 1 to 100) {\n        output \u003d output + (a)*5 + \"\\t\" + first(a)._2 + \"\\t\" +  second(a)._2 + \"\\n\"\n    }\n    return output\n}\nprintln(convertLengthsToOutputText(redditLengths, twitterLengths))",
+      "dateUpdated": "Mar 14, 2016 5:01:48 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "lineChart",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [
+            {
+              "name": "Length",
+              "index": 0.0,
+              "aggr": "sum"
+            }
+          ],
+          "values": [
+            {
+              "name": "Reddit",
+              "index": 1.0,
+              "aggr": "sum"
+            },
+            {
+              "name": "Twitter",
+              "index": 2.0,
+              "aggr": "sum"
+            }
+          ],
+          "groups": [],
+          "scatter": {
+            "xAxis": {
+              "name": "Length",
+              "index": 0.0,
+              "aggr": "sum"
+            },
+            "yAxis": {
+              "name": "Reddit",
+              "index": 1.0,
+              "aggr": "sum"
+            }
+          }
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1457952095316_-297701349",
+      "id": "20160314-114135_1544679395",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TABLE",
+        "msg": "Length\tReddit\tTwitter\n5\t2896\t3226\n10\t4075\t6152\n15\t4481\t10833\n20\t4841\t16538\n25\t5094\t21919\n30\t5126\t23048\n35\t4848\t23272\n40\t4743\t22956\n45\t4463\t22313\n50\t4168\t21402\n55\t4035\t20852\n60\t3833\t19972\n65\t3649\t18918\n70\t3374\t17971\n75\t3246\t17044\n80\t2964\t16007\n85\t2830\t15364\n90\t2703\t14523\n95\t2592\t13481\n100\t2355\t12733\n105\t2294\t12451\n110\t2090\t11322\n115\t2012\t10376\n120\t1876\t10065\n125\t1790\t10301\n130\t1735\t10779\n135\t1603\t12463\n140\t1565\t20652\n145\t1575\t0\n150\t1455\t0\n155\t1333\t0\n160\t1285\t0\n165\t1218\t0\n170\t1187\t0\n175\t1145\t0\n180\t1060\t0\n185\t1019\t0\n190\t998\t0\n195\t942\t0\n200\t959\t0\n205\t928\t0\n210\t825\t0\n215\t795\t0\n220\t779\t0\n225\t738\t0\n230\t653\t0\n235\t667\t0\n240\t690\t0\n245\t624\t0\n250\t634\t0\n255\t559\t0\n260\t587\t0\n265\t545\t0\n270\t556\t0\n275\t543\t0\n280\t491\t0\n285\t499\t0\n290\t480\t0\n295\t483\t0\n300\t427\t0\n305\t432\t0\n310\t463\t0\n315\t396\t0\n320\t401\t0\n325\t388\t0\n330\t402\t0\n335\t382\t0\n340\t357\t0\n345\t327\t0\n350\t331\t0\n355\t328\t0\n360\t332\t0\n365\t300\t0\n370\t304\t0\n375\t315\t0\n380\t285\t0\n385\t268\t0\n390\t256\t0\n395\t265\t0\n400\t257\t0\n405\t226\t0\n410\t270\t0\n415\t218\t0\n420\t255\t0\n425\t227\t0\n430\t228\t0\n435\t197\t0\n440\t202\t0\n445\t188\t0\n450\t203\t0\n455\t197\t0\n460\t210\t0\n465\t204\t0\n470\t162\t0\n475\t167\t0\n480\t158\t0\n485\t156\t0\n490\t182\t0\n495\t159\t0\n500\t163\t0\n\n"
+      },
+      "dateCreated": "Mar 14, 2016 11:41:35 AM",
+      "dateStarted": "Mar 14, 2016 5:01:31 PM",
+      "dateFinished": "Mar 14, 2016 5:01:46 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Related Terms across platforms",
+      "text": "def convertCooccurenceCountsToOutputText(combined: List[(String, Int)], reddit: Array[(String, Int)], twitter: Array[(String, Int)]): String \u003d {\n    val twitterTermCount \u003d computeTotalWordCount(tweetsRDD)\n    val redditTermCount \u003d computeTotalWordCount(tweetsRDD)\n    var output \u003d \"%table Term\" + \"\\t\" + \"Reddit\" + \"\\t\" + \"Twitter\" + \"\\n\"\n    var i \u003d 0\n    combined.foreach {\n        entry \u003d\u003e\n            val r \u003d if (reddit.toMap.get(entry._1).isDefined) reddit.toMap.get(entry._1).get else 0\n            val t \u003d if (twitter.toMap.get(entry._1).isDefined) twitter.toMap.get(entry._1).get else 0\n            // for normalizing: output \u003d output + entry._1 + \"\\t\" + (r.toFloat / redditTermCount) + \"\\t\" + (t.toFloat / twitterTermCount) + \"\\n\"\n            output \u003d output + entry._1 + \"\\t\" + (r) + \"\\t\" + (t) + \"\\n\"\n      }\n    return output\n}\n\nval term \u003d z.input(\"Term\", \"\").toString;\nif (term.length \u003e 0) {\n    val filteredTweetsRDD \u003d tweetsRDD.filter(post \u003d\u003e post.text.contains(term))\n    val filteredRedditRDD \u003d redditRDD.filter(post \u003d\u003e post.text.contains(term))\n    val twitterWordCounts \u003d computeTopTerms(filteredTweetsRDD, 1000).filter(entry \u003d\u003e entry._1 !\u003d term)\n    val redditWordCounts \u003d computeTopTerms(filteredRedditRDD, 1000).filter(entry \u003d\u003e entry._1 !\u003d term)\n    var combinedWordCounts \u003d (twitterWordCounts ++ redditWordCounts ).groupBy( _._1 ).map( kv \u003d\u003e (kv._1, kv._2.map( _._2).sum ) ).toList.sortBy(_._2).reverse.take(10)\n    println(convertCooccurenceCountsToOutputText(combinedWordCounts, redditWordCounts, twitterWordCounts))\n}",
+      "dateUpdated": "Mar 14, 2016 5:01:51 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "multiBarChart",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [
+            {
+              "name": "Term",
+              "index": 0.0,
+              "aggr": "sum"
+            }
+          ],
+          "values": [
+            {
+              "name": "Reddit",
+              "index": 1.0,
+              "aggr": "sum"
+            },
+            {
+              "name": "Twitter",
+              "index": 2.0,
+              "aggr": "sum"
+            }
+          ],
+          "groups": [],
+          "scatter": {
+            "xAxis": {
+              "name": "Term",
+              "index": 0.0,
+              "aggr": "sum"
+            },
+            "yAxis": {
+              "name": "Reddit",
+              "index": 1.0,
+              "aggr": "sum"
+            }
+          }
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {
+          "Term": "music"
+        },
+        "forms": {
+          "Term": {
+            "name": "Term",
+            "displayName": "Term",
+            "defaultValue": "",
+            "hidden": false
+          }
+        }
+      },
+      "jobName": "paragraph_1457960035381_748456323",
+      "id": "20160314-135355_982820883",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TABLE",
+        "msg": "Term\tReddit\tTwitter\nrt\t0\t592\npeople\t212\t29\nlove\t93\t118\ntime\t147\t34\nnew\t59\t120\nlisten\t80\t83\nsong\t89\t46\n#music\t0\t127\nplay\t100\t26\nvideo\t48\t73\n\n"
+      },
+      "dateCreated": "Mar 14, 2016 1:53:55 PM",
+      "dateStarted": "Mar 14, 2016 5:01:44 PM",
+      "dateFinished": "Mar 14, 2016 5:01:54 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Top Twitter hashtags",
+      "text": "%sql \nselect term, count(*) count from tweet_terms where substring(term, 0, 1) \u003d\u003d \"#\" group by term order by count desc limit 100",
+      "dateUpdated": "Mar 14, 2016 5:00:52 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [
+            {
+              "name": "term",
+              "index": 0.0,
+              "aggr": "sum"
+            }
+          ],
+          "values": [
+            {
+              "name": "count",
+              "index": 1.0,
+              "aggr": "sum"
+            }
+          ],
+          "groups": [],
+          "scatter": {
+            "xAxis": {
+              "name": "term",
+              "index": 0.0,
+              "aggr": "sum"
+            }
+          }
+        },
+        "editorMode": "ace/mode/sql",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1457968246218_-233313506",
+      "id": "20160314-161046_225176961",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TABLE",
+        "msg": "term\tcount\n#teamfollowback\t3571\n#ff\t2872\n#np\t2850\n#oomf\t2809\n#gameinsight\t2073\n#nowplaying\t1822\n#android\t1693\n#nf\t1425\n#ipad\t1383\n#mtvema\t1324\n#jobs\t1274\n#rt\t1192\n#openfollow\t1172\n#androidgames\t1136\n#bahrain\t1136\n#30thingsaboutme\t1134\n#news\t1083\n#job\t1078\n#1\t1055\n#followback\t1031\n#\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0629\t1019\n#porn\t1016\n#500aday\t957\n#fb\t947\n#ipadgames\t936\n#follow\t919\n#sex\t898\n#iphone\t876\n#win\t872\n#retweet\t868\n#music\t838\n#menunggu17september\t823\n#\\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\t813\n#highschoolmemories\t812\n#movie\t791\n#pisces\t748\n#tfb\t737\n#indyref\t731\n#xxx\t725\n#ksa\t705\n#nw\t693\n#celebrity\t691\n#lol\t685\n#free\t655\n#love\t641\n#aquarius\t636\n#taurus\t624\n#annasnurdayasayangcindyyuviajkt48\t617\n#winning\t605\n#kindle\t601\n#sagittarius\t585\n#\\u0627\\u0644\\u0647\\u0644\\u0627\\u0644\t577\n#movies\t571\n#x\t568\n#cbb\t568\n#tcot\t564\n#pussy\t562\n#mufc\t557\n#\\u062a\\u0637\\u0628\\u064a\\u0642_\\u0642\\u0631\\u0622\\u0646\\u0649\t553\n#teamautofollow\t548\n#aries\t547\n#hot\t541\n#\\ubbf8\\uce5c\\uac70\\uc544\\ub2c8\\uc57c\t529\n#sexy\t520\n#video\t518\n#gemini\t513\n#instantfollowback\t504\n#\\u0623\\u0633\\u0647\\u0645\t504\n#usa\t482\n#forumgrombyang\t474\n#sopa\t470\n#\\ud22c\\ud53c\\uc5e0\t467\n#libra\t459\n#\\u0631\\u062a\\u0648\\u064a\\u062a\t459\n#cancer\t454\n#ass\t453\n#mamacita\t449\n#fact\t448\n#tbt\t447\n#scorpio\t447\n#giveaway\t444\n#ifollowback\t441\n#saudi\t441\n#virgo\t438\n#deals\t432\n#followme\t430\n#itunes\t428\n#usaheadlines\t428\n#nfl\t425\n#100thingsihate\t425\n#jj\t425\n#\\u2026\t419\n#soundcloud\t419\n#1)\t418\n#shoutout\t418\n#smh\t417\n#neverforget\t415\n#\\u0627\\u0644\\u0646\\u0635\\u0631\t414\n#egypt\t401\n#syria\t396\n"
+      },
+      "dateCreated": "Mar 14, 2016 4:10:46 PM",
+      "dateStarted": "Mar 14, 2016 5:01:47 PM",
+      "dateFinished": "Mar 14, 2016 5:02:05 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Edit Stopwords",
+      "text": "print(updateStopwords(z.input(\"Add\", \"\").toString, z.input(\"Delete\", \"\").toString))",
+      "dateUpdated": "Mar 14, 2016 5:00:52 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -352,8 +672,61 @@
         },
         "editorMode": "ace/mode/scala",
         "title": true,
-        "tableHide": false,
-        "editorHide": false
+        "editorHide": true
+      },
+      "settings": {
+        "params": {
+          "Delete": "",
+          "Create": "theirs",
+          "Add": "good"
+        },
+        "forms": {
+          "Add": {
+            "name": "Add",
+            "displayName": "Add",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "Delete": {
+            "name": "Delete",
+            "displayName": "Delete",
+            "defaultValue": "",
+            "hidden": false
+          }
+        }
+      },
+      "jobName": "paragraph_1457954759487_539681871",
+      "id": "20160314-122559_1946969947",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "Added \u0027good\u0027 to stopwords\n!, \u0026, \u0026amp;, ,, -, ., .., ..., :, ?, a, about, above, across, after, afterwards, again, against, all, almost, alone, along, already, also, although, always, am, among, amongst, amoungst, amount, an, and, another, any, anyhow, anyone, anything, anyway, anywhere, are, around, as, at, back, be, became, because, become, becomes, becoming, been, before, beforehand, behind, being, below, beside, besides, between, beyond, bill, both, bottom, but, by, call, can, can\u0027t, cannot, cant, co, computer, con, could, couldnt, cry, de, describe, detail, did, didn\u0027t, do, does, doesn\u0027t, don\u0027t, done, dont, down, due, during, each, eg, eight, either, eleven, else, elsewhere, empty, enough, etc, even, ever, every, everyone, everything, everywhere, except, few, fifteen, fify, fill, find, fire, first, five, for, former, formerly, forty, found, four, from, front, full, further, get, give, go, going, good, got, had, has, hasnt, have, he, hence, her, here, hereafter, hereby, herein, hereupon, hers, herself, him, himself, his, how, however, hundred, i, i\u0027ll, i\u0027m, i\u0027ve, ie, if, im, in, inc, indeed, interest, into, is, it, it\u0027s, its, itself, just, keep, know, last, latter, latterly, least, less, like, ltd, made, make, many, may, me, meanwhile, might, mill, mine, more, moreover, most, mostly, move, much, must, my, myself, name, namely, need, neither, never, nevertheless, next, nine, no, nobody, none, noone, nor, not, nothing, now, nowhere, of, off, often, on, once, one, only, onto, or, other, others, otherwise, our, ours, ourselves, out, over, own, part, per, perhaps, please, put, rather, re, really, said, same, see, seem, seemed, seeming, seems, serious, several, she, should, show, side, since, sincere, six, sixty, so, some, somehow, someone, something, sometime, sometimes, somewhere, still, such, suite](http://redditenhancementsuitecom)[reddit, system, take, ten, than, that, that\u0027s, the, their, theirs, them, themselves, then, thence, there, there\u0027s, thereafter, thereby, therefore, therein, thereupon, these, they, they\u0027re, thick, thin, things, think, third, this, those, though, three, through, throughout, thru, thus, to, together, too, top, toward, towards, twelve, twenty, two, u, un, under, until, up, upon, us, very, via, want, was, wasn\u0027t, way, we, well, were, what, whatever, when, whence, whenever, where, whereafter, whereas, whereby, wherein, whereupon, wherever, whether, which, while, whither, who, whoever, whole, whom, whose, why, will, with, within, without, would, yet, you, you\u0027re, your, yours, yourself, yourselves"
+      },
+      "dateCreated": "Mar 14, 2016 12:25:59 PM",
+      "dateStarted": "Mar 14, 2016 5:01:54 PM",
+      "dateFinished": "Mar 14, 2016 5:02:06 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Query functions",
+      "text": "import org.apache.spark.sql.Row;\nimport org.apache.spark.sql.types.{StructType,StructField,StringType};\n\ndef computeTopTerms(postRdd: RDD[Post], count: Int): Array[(String, Int)] \u003d {\n  val words \u003d postRdd.flatMap(t \u003d\u003e t.text.toLowerCase().replaceAll(\"\\\\.\", \"\").replaceAll(\"\\\\,\", \"\").replaceAll(\"\\\\n\", \"\").trim().split(\" \"))\n  val filteredWords \u003d words.filter(word \u003d\u003e !stopwords.contains(word)).filter(word \u003d\u003e word.length() \u003e 1)\n  val wordCounts \u003d filteredWords.map(word \u003d\u003e (word, 1)).reduceByKey(_ + _).sortBy(_._2)\n  val topWords \u003d wordCounts.takeOrdered(count)(Ordering[Int].reverse.on(x \u003d\u003e x._2))\n  return topWords;\n}\n\ndef computeTotalWordCount(postRdd: RDD[Post]): Long \u003d {\n  val words \u003d postRdd.flatMap(t \u003d\u003e t.text.toLowerCase().replaceAll(\"\\\\.\", \"\").replaceAll(\"\\\\,\", \"\").replaceAll(\"\\\\n\", \"\").trim().split(\" \"))\n  val filteredWords \u003d words.filter(word \u003d\u003e !stopwords.contains(word)).filter(word \u003d\u003e word.length() \u003e 1)\n  return filteredWords.count()\n}\n\ndef convertOccurencesToRanks(termOccurences: Array[(String, Int)]): Array[(String, Int)] \u003d {\n  val sorted \u003d termOccurences.sortBy(_._2).reverse\n  var rank \u003d 0\n  val ranked \u003d sorted.map {\n    f \u003d\u003e\n      rank \u003d rank + 1\n      (f._1, rank)\n  }\n  return ranked\n}\n\ndef lookupRank(term: String, termRanks: Array[(String, Int)]): Int \u003d {\n  termRanks.filter(entry \u003d\u003e entry._1 \u003d\u003d term).foreach(x \u003d\u003e return x._2)\n  return 0;\n}\n\ndef computeTermRankChanges(before: Array[(String, Int)], after: Array[(String, Int)]): Array[(String, Int, Int, Int)] \u003d {\n  val rankChanges \u003d before.map {\n    entry \u003d\u003e\n      val term \u003d entry._1\n      val rankBefore \u003d entry._2\n      val rankAfter \u003d lookupRank(term, after)\n      val rankChange \u003d rankBefore - rankAfter\n      (term, rankBefore, rankAfter, rankChange)\n  }.filter(entry \u003d\u003e entry._2 !\u003d 0)\n  return rankChanges\n}\n\ndef convertTermCountsToOutputText(termCounts: Array[(String, Int)]): String \u003d {\n    var output \u003d \"%table Term\" + \"\\t\" + \"Occurrences\" + \"\\n\"\n    termCounts.foreach(l \u003d\u003e (output \u003d output + l._1 + \"\\t\" + l._2 + \"\\n\"))\n    return output\n}\n\ndef convertRankChangesToOutputText(rankChanges: Array[(String, Int, Int, Int)]): String \u003d {\n    var output \u003d \"%table Term\" + \"\\t\" + \"January, 2012\" + \"\\t\" + \"September, 2014\" + \"\\t\" + \"Change\" + \"\\n\"\n    rankChanges.foreach(l \u003d\u003e (output \u003d output + l._1 + \"\\t\" + l._2 + \"\\t\" + l._3 + \"\\t\" + l._4 + \"\\n\"))\n    return output\n}\n\ndef updateStopwords(toCreate: String, toDelete: String): String \u003d {\n    if (toCreate.length \u003e 0) {\n        stopwords \u003d stopwords + toCreate\n        println(\"Added \u0027\" + toCreate + \"\u0027 to stopwords\")\n    }\n    if (toDelete.length \u003e 0) {\n        stopwords \u003d stopwords.filter( _ !\u003d toDelete)\n        println(\"Removed \u0027\" + toDelete + \"\u0027 from stopwords\")\n    }\n    return stopwords.toSeq.sorted.mkString(\", \")\n}\n\nval words \u003d tweetsRDD.flatMap(t \u003d\u003e t.text.toLowerCase().replaceAll(\"\\\\.\", \"\").replaceAll(\"\\\\,\", \"\").trim().split(\" \"))\nval filteredWords \u003d words.filter(word \u003d\u003e !stopwords.contains(word)).filter(word \u003d\u003e word.length() \u003e 1)\n\n// The schema encoded as string\nval schemaString \u003d \"term\"\n\n// Generate the schema based on the string of schema\nval schema \u003d\n  StructType(\n    schemaString.split(\" \").map(fieldName \u003d\u003e StructField(fieldName, StringType, true)))\n\n// Convert records of the RDD (people) to Rows.\nval rowRDD \u003d filteredWords.map(entry \u003d\u003e (Row(entry)))\n\n// Apply the schema to the RDD.\nval tweetTermsDF \u003d sqlContext.createDataFrame(rowRDD, schema)\n\n// Register the DataFrames as a table.\ntweetTermsDF.registerTempTable(\"tweet_terms\")",
+      "dateUpdated": "Mar 14, 2016 5:02:12 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true,
+        "tableHide": true,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -364,18 +737,18 @@
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
-        "msg": "computeTopTerms: (postRdd: org.apache.spark.rdd.RDD[Post], count: Int)Array[(String, Int)]\nconvertOccurencesToRanks: (termOccurences: Array[(String, Int)])Array[(String, Int)]\nlookupRank: (term: String, termRanks: Array[(String, Int)])Int\ncomputeTermRankChanges: (before: Array[(String, Int)], after: Array[(String, Int)])Array[(String, Int, Int, Int)]\nconvertTermCountsToOutputText: (termCounts: Array[(String, Int)])String\nconvertRankChangesToOutputText: (rankChanges: Array[(String, Int, Int, Int)])String\n"
+        "msg": "import org.apache.spark.sql.Row\nimport org.apache.spark.sql.types.{StructType, StructField, StringType}\ncomputeTopTerms: (postRdd: org.apache.spark.rdd.RDD[Post], count: Int)Array[(String, Int)]\ncomputeTotalWordCount: (postRdd: org.apache.spark.rdd.RDD[Post])Long\nconvertOccurencesToRanks: (termOccurences: Array[(String, Int)])Array[(String, Int)]\nlookupRank: (term: String, termRanks: Array[(String, Int)])Int\ncomputeTermRankChanges: (before: Array[(String, Int)], after: Array[(String, Int)])Array[(String, Int, Int, Int)]\nconvertTermCountsToOutputText: (termCounts: Array[(String, Int)])String\nconvertRankChangesToOutputText: (rankChanges: Array[(String, Int, Int, Int)])String\nupdateStopwords: (toCreate: String, toDelete: String)String\nwords: org.apache.spark.rdd.RDD[String] \u003d MapPartitionsRDD[874] at flatMap at \u003cconsole\u003e:77\nfilteredWords: org.apache.spark.rdd.RDD[String] \u003d MapPartitionsRDD[876] at filter at \u003cconsole\u003e:82\nschemaString: String \u003d term\nschema: org.apache.spark.sql.types.StructType \u003d StructType(StructField(term,StringType,true))\nrowRDD: org.apache.spark.rdd.RDD[org.apache.spark.sql.Row] \u003d MapPartitionsRDD[877] at map at \u003cconsole\u003e:86\ntweetTermsDF: org.apache.spark.sql.DataFrame \u003d [term: string]\n"
       },
       "dateCreated": "Mar 13, 2016 1:20:19 PM",
-      "dateStarted": "Mar 13, 2016 4:50:53 PM",
-      "dateFinished": "Mar 13, 2016 4:50:55 PM",
+      "dateStarted": "Mar 14, 2016 5:02:06 PM",
+      "dateFinished": "Mar 14, 2016 5:02:08 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Load Data",
-      "text": "import org.apache.spark.rdd.RDD\n\ndef loadTwitterData(Path: String): RDD[Post] \u003d {\n  val df \u003d sqlContext.read.json(Path)\n  val postsRDD \u003d df.map {\n    row \u003d\u003e\n      val textIndex \u003d row.fieldIndex(\"text\")\n      val createdAtIndex \u003d row.fieldIndex(\"created_at\")\n      val reweetsIndex \u003d row.fieldIndex(\"retweet_count\")\n      val text \u003d row.getString(textIndex)\n      val createdAt \u003d row.getString(createdAtIndex)\n      val popularity \u003d row.getString(reweetsIndex).replaceAll(\"\\\\+\", \"\").toLong\n      Post(text, createdAt, \"Twitter\", popularity)\n  }\n  return postsRDD\n}\n\ndef loadRedditData(Path: String): RDD[Post] \u003d {\n  val df \u003d sqlContext.read.json(Path)\n  val postsRDD \u003d df.map {\n    row \u003d\u003e\n      val textIndex \u003d row.fieldIndex(\"body\")\n      val createdAtIndex \u003d row.fieldIndex(\"created_utc\")\n      val ups \u003d row.fieldIndex(\"ups\")\n      val text \u003d row.getString(textIndex)\n      val createdAt \u003d row.getString(createdAtIndex)\n      val popularity \u003d row.getLong(ups)\n      Post(text, createdAt, \"Reddit\", popularity)\n  }\n  return postsRDD\n}\n\nvar tweetsRDD \u003d loadTwitterData(DataLocation + \"/twitter/merged.json\")\nvar redditRDD \u003d loadRedditData(DataLocation + \"/comments/merged.json\")\n\n// Subsample\ntweetsRDD \u003d sc.parallelize(tweetsRDD.takeSample(false, 100000, 4372))\nredditRDD \u003d sc.parallelize(redditRDD.takeSample(false, 100000, 4372))\n\nprintln(tweetsRDD.count() + \" Tweets loaded.\")\nprintln(redditRDD.count() + \" Reddit comments loaded.\")\n\n// Load stopwords\nval Stopwords \u003d sc.textFile(DataLocation + \"../stopwords.txt\").collect.toSet",
-      "dateUpdated": "Mar 13, 2016 4:31:45 PM",
+      "text": "import org.apache.spark.rdd.RDD\n\ndef loadTwitterData(Path: String): RDD[Post] \u003d {\n  val df \u003d sqlContext.read.json(Path)\n  val postsRDD \u003d df.map {\n    row \u003d\u003e\n      val textIndex \u003d row.fieldIndex(\"text\")\n      val createdAtIndex \u003d row.fieldIndex(\"created_at\")\n      val reweetsIndex \u003d row.fieldIndex(\"retweet_count\")\n      val text \u003d row.getString(textIndex)\n      val createdAt \u003d row.getString(createdAtIndex)\n      val popularity \u003d row.getString(reweetsIndex).replaceAll(\"\\\\+\", \"\").toLong\n      Post(text, createdAt, \"Twitter\", popularity)\n  }\n  return postsRDD\n}\n\ndef loadRedditData(Path: String): RDD[Post] \u003d {\n  val df \u003d sqlContext.read.json(Path)\n  val postsRDD \u003d df.map {\n    row \u003d\u003e\n      val textIndex \u003d row.fieldIndex(\"body\")\n      val createdAtIndex \u003d row.fieldIndex(\"created_utc\")\n      val ups \u003d row.fieldIndex(\"ups\")\n      val text \u003d row.getString(textIndex)\n      val createdAt \u003d row.getString(createdAtIndex)\n      val popularity \u003d row.getLong(ups)\n      Post(text, createdAt, \"Reddit\", popularity)\n  }\n  return postsRDD\n}\n\nvar tweetsRDD \u003d loadTwitterData(DataLocation + \"/twitter/merged_500000.json\")\nvar redditRDD \u003d loadRedditData(DataLocation + \"/comments/merged_150000.json\")\n\n// Subsample\n// tweetsRDD \u003d sc.parallelize(tweetsRDD.takeSample(false, 1000000, 4372))\n// redditRDD \u003d sc.parallelize(redditRDD.takeSample(false, 1000000, 4372))\n\nprintln(tweetsRDD.count() + \" Tweets loaded.\")\nprintln(redditRDD.count() + \" Reddit comments loaded.\")\n\n// Load stopwords\nvar stopwords \u003d sc.textFile(DataLocation + \"../stopwords.txt\").collect.toSet",
+      "dateUpdated": "Mar 14, 2016 5:02:16 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -389,8 +762,8 @@
         },
         "editorMode": "ace/mode/scala",
         "title": true,
-        "editorHide": false,
-        "tableHide": false
+        "editorHide": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -401,18 +774,18 @@
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
-        "msg": "import org.apache.spark.rdd.RDD\nloadTwitterData: (Path: String)org.apache.spark.rdd.RDD[Post]\nloadRedditData: (Path: String)org.apache.spark.rdd.RDD[Post]\ntweetsRDD: org.apache.spark.rdd.RDD[Post] \u003d MapPartitionsRDD[13] at map at \u003cconsole\u003e:27\nredditRDD: org.apache.spark.rdd.RDD[Post] \u003d MapPartitionsRDD[25] at map at \u003cconsole\u003e:27\ntweetsRDD: org.apache.spark.rdd.RDD[Post] \u003d ParallelCollectionRDD[27] at parallelize at \u003cconsole\u003e:34\nredditRDD: org.apache.spark.rdd.RDD[Post] \u003d ParallelCollectionRDD[29] at parallelize at \u003cconsole\u003e:32\n100000 Tweets loaded.\n100000 Reddit comments loaded.\nStopwords: scala.collection.immutable.Set[String] \u003d Set(serious, latterly, down, side, it\u0027s, moreover, please, ourselves, behind, for, find, further, mill, due, any, wherein, across, twenty, name, this, in, move, itse\", have, your, off, once, are, is, his, why, \u0026amp;, too, among, everyone, show, empty, already, nobody, got, less, am, hence, system, than, four, fire, anyhow, three, whereby, con, twelve, throughout, ., but, whether, below, co, mine, becomes, eleven, what, would, although, elsewhere, another, front, if, hereby, own, neither, bottom, up, etc, so, our, per, therein, must, beforehand, keep, do, all, him, u, had, somehow, re, onto, nor, every, herein, full, before, afterwards, somewhere, whither, \u0026, else, namely, us, it, !, whereupon, two, thence, a, herse\", dont, sometimes, b..."
+        "msg": "import org.apache.spark.rdd.RDD\nloadTwitterData: (Path: String)org.apache.spark.rdd.RDD[Post]\nloadRedditData: (Path: String)org.apache.spark.rdd.RDD[Post]\ntweetsRDD: org.apache.spark.rdd.RDD[Post] \u003d MapPartitionsRDD[887] at map at \u003cconsole\u003e:75\nredditRDD: org.apache.spark.rdd.RDD[Post] \u003d MapPartitionsRDD[896] at map at \u003cconsole\u003e:75\n500000 Tweets loaded.\n150000 Reddit comments loaded.\nstopwords: scala.collection.immutable.Set[String] \u003d Set(serious, latterly, down, side, it\u0027s, moreover, please, ourselves, that\u0027s, behind, for, find, further, mill, due, any, wherein, across, twenty, name, there\u0027s, this, in, move, myself, have, your, off, once, i\u0027ll, are, is, his, why, \u0026amp;, too, among, everyone, show, said, empty, already, nobody, got, less, am, hence, system, than, four, didn\u0027t, fire, anyhow, three, whereby, himself, con, twelve, throughout, ., but, you\u0027re, whether, below, co, mine, becomes, eleven, what, would, although, elsewhere, another, front, if, hereby, own, neither, bottom, up, going, etc, so, our, per, therein, must, beforehand, keep, do, all, him, u, had, somehow, re, onto, nor, every, herein, full, before, afterwards, somewhere, whither, \u0026, just, else, name..."
       },
       "dateCreated": "Dec 6, 2015 12:18:12 PM",
-      "dateStarted": "Mar 13, 2016 4:31:45 PM",
-      "dateFinished": "Mar 13, 2016 4:50:45 PM",
+      "dateStarted": "Mar 14, 2016 5:02:06 PM",
+      "dateFinished": "Mar 14, 2016 5:02:13 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Constants",
       "text": "val DataLocation \u003d \"/Users/taylorpeer/Projects/BI/data/\"\n\ncase class Post(text: String, created_at: String, platform: String, popularity: Long)",
-      "dateUpdated": "Mar 13, 2016 4:31:42 PM",
+      "dateUpdated": "Mar 14, 2016 5:02:19 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -425,7 +798,7 @@
           "scatter": {}
         },
         "title": true,
-        "editorHide": false,
+        "editorHide": true,
         "tableHide": true,
         "editorMode": "ace/mode/scala"
       },
@@ -441,13 +814,13 @@
         "msg": "DataLocation: String \u003d /Users/taylorpeer/Projects/BI/data/\ndefined class Post\n"
       },
       "dateCreated": "Dec 6, 2015 12:18:57 PM",
-      "dateStarted": "Mar 13, 2016 4:31:42 PM",
-      "dateFinished": "Mar 13, 2016 4:31:42 PM",
+      "dateStarted": "Mar 14, 2016 5:02:08 PM",
+      "dateFinished": "Mar 14, 2016 5:02:13 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "dateUpdated": "Dec 6, 2015 12:50:26 PM",
+      "dateUpdated": "Mar 14, 2016 5:00:52 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -467,8 +840,14 @@
       },
       "jobName": "paragraph_1449402354229_1867469881",
       "id": "20151206-124554_379572014",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT"
+      },
       "dateCreated": "Dec 6, 2015 12:45:54 PM",
-      "status": "READY",
+      "dateStarted": "Mar 14, 2016 5:02:13 PM",
+      "dateFinished": "Mar 14, 2016 5:02:13 PM",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     }
   ],
